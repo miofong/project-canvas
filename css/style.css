@@ -1,0 +1,24 @@
+canvas{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.canvas {
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8);
+  position: absolute;
+}
+#canvas-draft {
+  background-color: transparent;
+}
+.buttons{
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8);
+  width: 1280px;
+  margin-top: 70vh;
+  margin-bottom: 10px;
+}
+a{
+  padding: 20px;
+  opacity: 0.5;
+}
+a:hover{
+  opacity: 1;
+}
