@@ -113,7 +113,16 @@
         $("#pen").click(() => {
           currentFunction = new DrawingLine(contextReal);
         });
-      })
+        $("#circle").click(() => {
+          currentFunction = new DrawingCircle(contextReal, contextDraft)
+        });
+        $("#line").click(() => {
+          currentFunction = new Line(contextReal, contextDraft)
+        });
+        $("#curve").click(() => {
+          currentFunction = new Curve(contextReal, contextDraft)
+        })
+      });
     </script>
 </body>
 
