@@ -30,10 +30,15 @@ class DrawingLine extends PaintFunction {
     this.draw(coord[0], coord[1]);
   }
 
-  onMouseMove() { }
-  onMouseUp() { }
-  onMouseLeave() { }
-  onMouseEnter() { }
+  onMouseMove() {}
+  onMouseUp() {
+    // undo redo functions
+    var lastMove = canvasReal.toDataURL();
+    undoDataStack.push(lastMove);
+    redoDataStack = [];
+  }
+  onMouseLeave() {}
+  onMouseEnter() {}
 
   draw(x, y) {
     //

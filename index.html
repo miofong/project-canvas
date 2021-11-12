@@ -46,6 +46,8 @@
         <!-- The eraser button  -->
         <a class="col-md-3" id="eraser">
           <img src="img/eraser.png" alt="eraser">
+          <label for="font-range">Size: <span id='font-size-number'>12</span></label>
+          <input id="font-range" type="range" class="form-control-range" min=5 max=52 value=12 step=1>
         </a>
         <!--  The drawing line button  -->
         <a class="col-md-3" id="line">
@@ -63,7 +65,11 @@
         </a>
         <!-- The undo button  -->
         <a class="col-md-3" id="undo">
-          <img src="img/undo.png" alt="undo">
+          <img src="img/undo2.png" alt="undo">
+        </a>
+        <!-- The redo button  -->
+        <a class="col-md-3" id="redo">
+          <img src="img/redo.png" alt="redo">
         </a>
         <!-- The clear button  -->
         <a class="col-md-3" id="clear">
@@ -71,7 +77,15 @@
         </a>
         <!-- The colour picker button  -->
         <a class="col-md-3" id="colourPicker">
-          <img src="img/colourPicker.png" alt="colourPicker">
+          <div id="colorPalette">
+            <p class="mobileHidden">Stroke</p>
+            <input type="color" class="jscolor colorButton" value="#000000"
+              onchange="canvasSettings.changeStroke(this.jscolor)" id="colorStroke"></input>
+            <p class="mobileHidden">Fill</p>
+            <input type="color" class="jscolor colorButton" value="#ffffff"
+              onchange="canvasSettings.changeFill(this.jscolor)" id="colorFill">
+            </input>
+          </div>
         </a>
       </div>
     </div>
@@ -112,6 +126,12 @@
         });
         $("#pen").click(() => {
           currentFunction = new DrawingLine(contextReal);
+        });
+        // $("#undo").click(() => {
+        //   currentFunction = new Undoing(contextReal, contextDraft);
+        // });
+        $("#eraser").click(() => {
+          currentFunction = new Erasing(contextReal);
         });
       })
     </script>
