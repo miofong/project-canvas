@@ -52,6 +52,7 @@ document.addEventListener("keydown", function (event) {
   if (event.ctrlKey && event.key === "y") {
     if (redoDataStack.length > 0) {
       var nextStep = new Image();
+      contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
       nextStep.src = redoDataStack[redoDataStack.length - 1];
       nextStep.onload = function () {
         contextReal.drawImage(nextStep, 0, 0);
