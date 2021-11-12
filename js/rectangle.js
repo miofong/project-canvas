@@ -13,7 +13,7 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseDown(coord, event) {
-    this.contextReal.fillStyle = fontColor;
+    // this.contextReal.fillStyle = fontColor;
     this.origX = coord[0];
     this.origY = coord[1];
   }

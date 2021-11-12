@@ -1,3 +1,6 @@
+.container {
+  overflow: hidden;
+}
 canvas{
   margin-top: 10px;
   margin-left: 15px;

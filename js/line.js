@@ -20,6 +20,10 @@ class Line extends PaintFunction {
     }
 
     onMouseUp(coord) {
+        var lastMove = canvasReal.toDataURL();
+        undoDataStack.push(lastMove);
+        console.log(undoDataStack.length);
+        redoDataStack = [];
         // this.contextDraft.strokeStyle = fontColor
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height)
         this.contextReal.beginPath();

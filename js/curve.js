@@ -3,40 +3,50 @@ class Curve extends PaintFunction {
         super()
         this.contextReal = contextReal,
         this.contextDraft = contextDraft
+        this.click = 0;
     }
     onMouseDown(coord, event) {
-        this.contextReal.fillStyle = fontColor
-        this.origX = coord[0];
-        this.origY = coord[1];
-    }
-    onDragging(coord, event) {
-        this.contextDraft.fillStyle = fontColor
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.contextDraft.beginPath();
-        this.contextDraft.moveTo(this.origX, this.origY);
-        // this.canvasDraft.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY)
-        // console.log(this.origX)
-        this.contextDraft.stroke()
-    }
-    onMouseMove(coord, event) {
-        let controlPointX = coord[0];
-        let controlPointY = coord[1];
-        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        // this.contextReal.beginPath();
-        // this.context.moveTo(this.origX, this.origY);
-        this.contextDraft.quadraticCurveTo(controlPointX, controlPointY, this.endX, this.endY)
-        this.contextDraft.stroke()
+        if (this.click === 0) {
+            this.origX = coord[0];
+            this.origY = coord[1];
+        }
     }
 
-    onMouseUp(coord, event) {
+    onDragging(coord, event) {
         this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-        this.endX = coord[0];
-        this.endY = coord[1];
-        // this.contextReal.beginPath();
-        // this.contextReal.moveTo(this.origX, this.origY);
-        this.contextReal.quadraticCurveTo(controlPointX, controlPointY, this.endX, this.endY)
-        this.contextReal.stroke()
-        console.log(this.origX)
-        
+        if (this.click === 0) {
+            contextDraft.beginPath();
+            contextDraft.moveTo(this.origX, this.origY);
+            contextDraft.lineTo(coord[0], coord[1]);
+            contextDraft.stroke()
+        } else if (this.click !== 0) {
+            contextDraft.beginPath();
+            contextDraft.moveTo(this.origX, this.origY);
+            contextDraft.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);
+            contextDraft.stroke();
+        }
     }
+    
+    onMouseUp(coord, event) {
+        this.endX;
+        this.endY;
+        if (this.click === 0) {
+            this.endX = coord[0];
+            this.endY = coord[1];
+            this.click++;
+            document.getElementById("canvas-draft").style.cursor = "move"
+        } else if (this.click !== 0) {
+            contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+            contextReal.beginPath();
+            contextReal.moveTo(this.origX, this.origY);
+            contextReal.quadraticCurveTo(coord[0], coord[1], this.endX, this.endY);
+            contextReal.stroke();
+            this.click = 0;
+            document.getElementById("canvas-draft").style.cursor = "default"
+        }
+        var lastMove = canvasReal.toDataURL();
+        undoDataStack.push(lastMove);
+        console.log(undoDataStack.length);
+        redoDataStack = [];
+    } 
 }

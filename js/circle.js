@@ -14,7 +14,7 @@ class DrawingCircle extends PaintFunction {
 
     onDragging(coord, event) {
         // this.contextDraft.fillStyle = fontColor;
-
+        
         let radiusX = Math.abs(this.origX - coord[0]);
         let radiusY = Math.abs(this.origY - coord[1]);
         this.contextDraft.clearRect(
@@ -38,11 +38,15 @@ class DrawingCircle extends PaintFunction {
             0,
             canvasDraft.width,
             canvasDraft.height
-        );
-        
+            );
+            
         this.contextReal.beginPath();
         this.contextReal.ellipse(this.origX, this.origY, radiusX, radiusY, 0, 0, Math.PI * 2)
         this.contextReal.fill();
+        var lastMove = canvasReal.toDataURL();
+        undoDataStack.push(lastMove);
+        console.log(undoDataStack.length);
+        redoDataStack = [];
     }
 
     onMouseLeave() { }
