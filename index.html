@@ -8,6 +8,7 @@
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
 
@@ -55,6 +56,14 @@
         <a class="col-md-3" id="curve">
           <img src="img/curve.png" alt="curve">
         </a>
+        <!-- The drawing two curve button  -->
+        <a class="col-md-3" id="beizer">
+          <img src="img/curve.png" alt="beizer">
+        </a>
+        <a class="col-md-3" id="save">
+          <i class="fas fa-save"></i>
+        </a>
+
       </div>
       <div class="row text-center">
         <!-- The text button  -->
@@ -96,6 +105,8 @@
     <script src="./js/line.js" type="text/javascript"></script>
     <!-- The drawing curve functionality  -->
     <script src="./js/curve.js" type="text/javascript"></script>
+    <!-- The saving functionality  -->
+    <script src="./js/save.js" type="text/javascript"></script>
     <!-- The text functionality  -->
     <script src="./js/text.js" type="text/javascript"></script>
     <!-- The undo functionality  -->
@@ -113,7 +124,19 @@
         $("#pen").click(() => {
           currentFunction = new DrawingLine(contextReal);
         });
-      })
+        $("#circle").click(() => {
+          currentFunction = new DrawingCircle(contextReal, contextDraft)
+        });
+        $("#line").click(() => {
+          currentFunction = new Line(contextReal, contextDraft)
+        });
+        $("#curve").click(() => {
+          currentFunction = new Curve(contextReal, contextDraft)
+        });
+        $("#beizer").click(() => {
+          currentFunction = new Beizer(contextReal, contextDraft)
+        });
+      });
     </script>
 </body>
 
