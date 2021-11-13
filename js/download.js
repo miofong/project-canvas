@@ -6,11 +6,11 @@ $("#download").click(() => {
     for (i = 0; i < downloadCheck.length; i++) {
         if (localStorage.pressed !== downloadCheck[i]) {
             $(`#${downloadCheck[i]}`).css("opacity", "0.5");
-            $(`#${downloadCheck[i]}`).css("box-shadow", "0 0 8px 0 rgba(0, 0, 0, 0.5)");
+            $(`#${downloadCheck[i]}`).css("box-shadow", "0 0 8px 0 rgba(255, 255, 255, 0.5)");
             $("#textBox").remove();
         } else {
             $(`#${localStorage.pressed}`).css("opacity", "1");
-            $(`#${localStorage.pressed}`).css("box-shadow", "0 0 8px 0 rgba(0, 0, 0, 1)");
+            $(`#${localStorage.pressed}`).css("box-shadow", "0 0 8px 0 rgba(255, 255, 255, 1)");
             let link = document.createElement("a");
             let name = prompt("Save file as: ")
             if (name !== null) {
