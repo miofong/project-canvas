@@ -1,44 +1,26 @@
-/**********************************************
- * Drawing Line Functionality
- * ==================================
- * This class extends the PaintFunction class, which you can find in common
- * Remember, order matters
- ***********************************************/
 class DrawingLine extends PaintFunction {
-  // This class extends the PaintFunction class
-  // You are only passing one instance here
-
   constructor(contextReal) {
     super();
     this.context = contextReal;
   }
-
-  // On mouse down, ensure that the pen has these features
-  onMouseDown(coord, event) {
-    // Fill in the color
-    this.context.strokeStyle = "#df4b26";
-    // Kind of line
+  onMouseDown(coord) {
     this.context.lineJoin = "round";
-    // Width of line
-    this.context.lineWidth = 5;
-    // Drawing the line here
+    this.context.lineWidth = localStorage.size;
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
   }
-  // Clicking and removing your mouse
-  onDragging(coord, event) {
+  onDragging(coord) {
     this.draw(coord[0], coord[1]);
   }
-
-  onMouseMove() { }
-  onMouseUp() { }
-  onMouseLeave() { }
-  onMouseEnter() { }
-
+  onMouseUp() {
+    let lastMove = canvasReal.toDataURL();
+    undoDataStack.push(lastMove);
+    redoDataStack = [];
+    this.context.globalCompositeOperation = "source-over";
+  }
   draw(x, y) {
-    //
     this.context.lineTo(x, y);
-    // Draw the line onto the page
+    this.context.strokeStyle = localStorage.color;
     this.context.stroke();
   }
 }

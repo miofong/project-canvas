@@ -1,15 +1,11 @@
-/**********************************************
- * The Canvas
- * ==================================
- ***********************************************/
-
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext("2d");
 let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
-
+let undoDataStack = [];
+let redoDataStack = [];
 $("#canvas-draft").mousedown(function (e) {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
@@ -45,15 +41,12 @@ $("#canvas-draft").mouseenter(function (e) {
   let mouseY = e.offsetY;
   currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
-
-/** # Class (all classes will have these methods) #
-/*  ====================== */
 class PaintFunction {
-  constructor() {}
-  onMouseDown() {}
-  onDragging() {}
-  onMouseMove() {}
-  onMouseUp() {}
-  onMouseLeave() {}
-  onMouseEnter() {}
+  constructor() { }
+  onMouseDown() { }
+  onDragging() { }
+  onMouseMove() { }
+  onMouseUp() { }
+  onMouseLeave() { }
+  onMouseEnter() { }
 }
