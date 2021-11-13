@@ -1,3 +1,0 @@
-$("#curve").click(() => {
-    alert("clicked!")
-})
