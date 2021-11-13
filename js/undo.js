@@ -1,4 +1,4 @@
-let undoCheck = [`rectangle`, `circle`, `polygon`, `pen`, `bucket`, `eraser`, `line`, `curve`, `text`, `undo`, `clear`, `download`]
+let undoCheck = [`rectangle`, `circle`, `polygon`, `pen`, `eraser`, `line`, `curve`, `text`, `undo`, `redo`, `clear`, `download`];
 $("#undo").click(() => {
     if (localStorage.pressed !== `undo`) {
         localStorage.pressed = `undo`;
@@ -26,17 +26,6 @@ $("#undo").click(() => {
                 };
             }
             redoDataStack.push(undoDataStack.pop());
-            $("#redo").click(function redo() {
-                if (redoDataStack.length > 0) {
-                    var nextStep = new Image();
-                    contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
-                    nextStep.src = redoDataStack[redoDataStack.length - 1];
-                    nextStep.onload = function () {
-                        contextReal.drawImage(nextStep, 0, 0);
-                    };
-                    undoDataStack.push(redoDataStack.pop());
-                }
-            });
             document.addEventListener("keydown", function (event) {
                 if (event.ctrlKey && event.key === "z") {
                     if (undoDataStack.length == 0) {

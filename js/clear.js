@@ -1,4 +1,4 @@
-let clearCheck = [`rectangle`, `circle`, `polygon`, `pen`, `bucket`, `eraser`, `line`, `curve`, `text`, `undo`, `clear`, `download`]
+let clearCheck = [`rectangle`, `circle`, `polygon`, `pen`, `eraser`, `line`, `curve`, `text`, `undo`, `redo`, `clear`, `download`];
 $("#clear").click(() => {
     if (localStorage.pressed !== `clear`) {
         localStorage.pressed = `clear`;

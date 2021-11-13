@@ -44,10 +44,7 @@
         <a class="col-md-1" id="text">
           <img src="img/text.png" alt="text">
         </a>
-        <!-- The bucket button  -->
-        <a class="col-md-1" id="bucket">
-          <img src="img/bucket.png" alt="bucket">
-        </a>
+
         <!-- The eraser button  -->
         <a class="col-md-1" id="eraser">
           <img src="img/eraser.png" alt="eraser">
@@ -55,6 +52,10 @@
         <!-- The undo button  -->
         <a class="col-md-1" id="undo">
           <img src="img/undo.png" alt="undo">
+        </a>
+        <!-- The redo button  -->
+        <a class="col-md-1" id="redo">
+          <img src="img/redo.png" alt="redo">
         </a>
         <!-- The clear button  -->
         <a class="col-md-1" id="clear">
@@ -71,11 +72,11 @@
         <div class="col-md-6" id="fontPicker">
           <form>
             <div class="form-group">
-              <h4 for="font-range">Size <span id='font-size-number'>12</span></h4>
+              <h4 id="sizeText" for="font-range">Size <span id='font-size-number'>12</span></h4>
               <input id="font-range" type="range" class="form-control-range" min=5 max=52 value=12 step=1>
             </div>
             <div id='font-picker-div'>
-              <h4 id='font-picker-text'>Font</h4>
+              <h4 id="fontText" id='font-picker-text'>Font</h4>
               <select id='font-picker-selector'>
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
@@ -124,12 +125,12 @@
   <script src="./js/polygon.js" type="text/javascript"></script>
   <!-- The text functionality  -->
   <script src="./js/text.js" type="text/javascript"></script>
-  <!-- The bucket functionality  -->
-  <!--script src="./js/bucket.js" type="text/javascript"></script-->
   <!-- The picker functionality  -->
   <script src="./js/picker.js" type="text/javascript"></script>
   <!-- The undo functionality  -->
   <script src="./js/undo.js" type="text/javascript"></script>
+  <!-- The redo functionality  -->
+  <script src="./js/redo.js" type="text/javascript"></script>
   <!-- The clear functionality  -->
   <script src="./js/clear.js" type="text/javascript"></script>
   <!-- The eraser functionality  -->

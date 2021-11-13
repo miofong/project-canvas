@@ -1,5 +1,5 @@
 $(() => {
-  let buttons = [`rectangle`, `circle`, `polygon`, `pen`, `bucket`, `eraser`, `line`, `curve`, `text`, `undo`, `clear`, `download`];
+  let buttons = [`rectangle`, `circle`, `polygon`, `pen`, `eraser`, `line`, `curve`, `text`, `undo`, `redo`, `clear`, `download`];
   let mw = window.innerWidth;
   let mh = window.innerHeight;
   canvasReal.width = mw;

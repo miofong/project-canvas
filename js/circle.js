@@ -5,8 +5,8 @@ class DrawingCircle extends PaintFunction {
         this.contextDraft = contextDraft;
     }
     onMouseDown(coord) {
-        this.origX = coord[0]
-        this.origY = coord[1]
+        this.origX = coord[0];
+        this.origY = coord[1];
     }
     onDragging(coord) {
         let radiusX = Math.abs(this.origX - coord[0]);
@@ -38,6 +38,5 @@ class DrawingCircle extends PaintFunction {
         let lastMove = canvasReal.toDataURL();
         undoDataStack.push(lastMove);
         redoDataStack = [];
-        this.context.globalCompositeOperation = "source-over";
     }
 }

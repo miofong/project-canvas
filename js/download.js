@@ -1,4 +1,4 @@
-let downloadCheck = [`rectangle`, `circle`, `polygon`, `pen`, `bucket`, `eraser`, `line`, `curve`, `text`, `undo`, `clear`, `download`]
+let downloadCheck = [`rectangle`, `circle`, `polygon`, `pen`, `eraser`, `line`, `curve`, `text`, `undo`, `redo`, `clear`, `download`];
 $("#download").click(() => {
     if (localStorage.pressed !== `download`) {
         localStorage.pressed = `download`;

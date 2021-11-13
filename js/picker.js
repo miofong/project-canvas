@@ -1,51 +1,46 @@
 //color Picker
 $(`#red`).click(() => {
-    if (localStorage.color !== `red`) {
-        localStorage.color = `red`;
+    if (localStorage.color !== `rgba(255, 0, 0, 255)`) {
+        localStorage.color = `rgba(255, 0, 0, 255)`;
     };
 });
 $(`#orange`).click(() => {
-    if (localStorage.color !== `orange`) {
-        localStorage.color = `orange`;
+    if (localStorage.color !== `rgba(255, 165, 0, 255)`) {
+        localStorage.color = `rgba(255, 165, 0, 255)`;
     };
 });
 $(`#yellow`).click(() => {
-    if (localStorage.color !== `yellow`) {
-        localStorage.color = `yellow`;
+    if (localStorage.color !== `rgba(255, 255, 0, 255)`) {
+        localStorage.color = `rgba(255, 255, 0, 255)`;
     };
 });
 $(`#green`).click(() => {
-    if (localStorage.color !== `green`) {
-        localStorage.color = `green`;
+    if (localStorage.color !== `rgba(0, 128, 0, 255)`) {
+        localStorage.color = `rgba(0, 128, 0, 255)`;
     };
 });
 $(`#blue`).click(() => {
-    if (localStorage.color !== `blue`) {
-        localStorage.color = `blue`;
+    if (localStorage.color !== `rgba(0, 0, 255, 255)`) {
+        localStorage.color = `rgba(0, 0, 255, 255)`;
     };
 });
 $(`#indigo`).click(() => {
-    if (localStorage.color !== `indigo`) {
-        localStorage.color = `indigo`;
-    };
-});
-$(`#violet`).click(() => {
-    if (localStorage.color !== `violet`) {
-        localStorage.color = `violet`;
+    if (localStorage.color !== `rgba(75, 0, 130, 255)`) {
+        localStorage.color = `rgba(75, 0, 130, 255)`;
     };
 });
 $(`#white`).click(() => {
-    if (localStorage.color !== `white`) {
-        localStorage.color = `white`;
+    if (localStorage.color !== `rgba(255, 255, 255, 255)`) {
+        localStorage.color = `rgba(255, 255, 255, 255)`;
     };
 });
 $(`#grey`).click(() => {
-    if (localStorage.color !== `grey`) {
-        localStorage.color = `grey`;
+    if (localStorage.color !== `rgba(128, 128, 128, 255)`) {
+        localStorage.color = `rgba(128, 128, 128, 255)`;
     };
 });
 $(`#black`).click(() => {
-    if (localStorage.color !== `black`) {
-        localStorage.color = `black`;
+    if (localStorage.color !== `rgba(0, 0, 0, 255)`) {
+        localStorage.color = `rgba(0, 0, 0, 255)`;
     };
 });

@@ -17,7 +17,6 @@ class Erasing extends PaintFunction {
         let lastMove = canvasReal.toDataURL();
         undoDataStack.push(lastMove);
         redoDataStack = [];
-        this.context.globalCompositeOperation = "source-over";
     }
     draw(x, y) {
         this.context.lineTo(x, y);
